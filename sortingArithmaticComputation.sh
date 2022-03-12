@@ -23,4 +23,21 @@ echo "${computationDict[@]}"
 declare -a computationArr
 
 computationArr=( ${computationDict[a+b*c]} ${computationDict[a*b+c]} ${computationDict[c+a/b]} ${computationDict[a%b+c]} )
-echo "${computationArr[@]}"
+echo ${computationArr[@]}
+
+length=${#computationArr[@]}
+temp1=0
+
+for (( i=0; i < $length; i++ ))
+do
+        for(( j=$(($i+1)); j < $length; j++ ))
+        do
+                if [ ${computationArr[ $i ]} -lt ${computationArr[ $j ]} ]
+                then
+                        temp1=${computationArr[ $i ]}
+                        computationArr[ $i ]=${computationArr[ $j ]}
+                        computationArr[ $j ]=$temp1
+                fi
+        done
+done
+echo "Results in Decsending order" ${computationArr[@]}
