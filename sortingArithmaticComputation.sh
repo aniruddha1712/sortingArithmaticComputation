@@ -40,4 +40,20 @@ do
                 fi
         done
 done
-echo "Results in Decsending order" ${computationArr[@]}
+echo "Results in Descending order" ${computationArr[@]}
+
+temp2=0
+
+for (( i=0; i < $length; i++ ))
+do
+        for(( j=$(($i+1)); j < $length; j++ ))
+        do
+                if [ ${computationArr[ $i ]} -gt ${computationArr[ $j ]} ]
+                then
+                        temp2=${computationArr[ $i ]}
+                        computationArr[ $i ]=${computationArr[ $j ]}
+                        computationArr[ $j ]=$temp2
+                fi
+        done
+done
+echo "Results in Ascending order" ${computationArr[@]}
