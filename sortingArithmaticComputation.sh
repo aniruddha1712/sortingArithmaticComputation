@@ -7,3 +7,5 @@ read -p "Enter Third Number" c
 comp1=$(($a + $b * $c))
 
 comp2=$(($a * $b + $c))
+
+comp3=$(($c + $a / $b))
