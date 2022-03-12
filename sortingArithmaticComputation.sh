@@ -11,3 +11,10 @@ comp2=$(($a * $b + $c))
 comp3=$(($c + $a / $b))
 
 comp4=$(($a % $b + $c))
+
+declare -A computationDict
+
+computationDict[a+b*c]=[$comp1]
+computationDict[a*b+c]=[$comp2]
+computationDict[c+a/b]=[$comp3]
+computationDict[a%b+c]=[$comp4]
